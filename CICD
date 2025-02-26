@@ -1,1 +1,29 @@
+1. #What is CI/CD Pipeline?
+A CI/CD Pipeline is a series of steps that must be performed in order to deliver a new version of software. A pipeline typically includes stages for:
 
+Building the code
+Running automated tests
+Deploying to staging/production environments
+Example of a basic Jenkins Pipeline:
+
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+        stage('Test') {
+            steps {
+                sh 'npm run test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh './deploy.sh'
+            }
+        }
+    }
+}
